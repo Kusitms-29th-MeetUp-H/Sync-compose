@@ -1,28 +1,30 @@
-package com.example.sync_compose
+package com.example.sync_compose.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.sync_compose.ui.theme.SynccomposeTheme
+import androidx.navigation.compose.rememberNavController
+import com.example.sync_compose.ui.theme.SyncTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SynccomposeTheme {
-                // A surface container using the 'background' color from the theme
+            SyncTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    MainScreen()
                 }
             }
         }
@@ -30,14 +32,22 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MainScreen() {
+    val navController = rememberNavController()
+    Scaffold(
+        bottomBar = { BottomNavBar(navController = navController) }
+    ) {
+        Box(Modifier.padding(it)) {
+            BottomNavGraph(navController = navController)
+        }
+    }
 }
 
+/*
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    SynccomposeTheme {
+    SyncTheme {
         Greeting("Android")
     }
-}
+}*/
