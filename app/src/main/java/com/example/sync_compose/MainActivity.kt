@@ -14,13 +14,13 @@ import androidx.navigation.compose.rememberNavController
 import com.example.sync_compose.ui.navigation.BottomNavigationBar
 import com.example.sync_compose.ui.navigation.SetupNavGraph
 import com.example.sync_compose.ui.screen.home.HomeScreen
-import com.example.sync_compose.ui.theme.SynccomposeTheme
+import com.example.sync_compose.ui.theme.SyncTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SynccomposeTheme {
+            SyncTheme {
                 MainScreen()
             }
         }
@@ -43,7 +43,7 @@ fun MainScreen() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    SynccomposeTheme {
+    SyncTheme {
         HomeScreen()
     }
 }
