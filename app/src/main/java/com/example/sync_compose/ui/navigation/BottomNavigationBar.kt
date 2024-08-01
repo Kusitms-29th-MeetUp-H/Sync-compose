@@ -38,9 +38,11 @@ fun BottomNavigationBar(navController: NavHostController) {
         modifier = Modifier
             .fillMaxWidth()
             .shadow(
-                elevation = 8.dp,
+                elevation = 20.dp,
                 shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
-                clip = true
+                clip = true,
+                ambientColor = Color.Black,
+                spotColor = Color.Black
             )
             .background(SyncColors().white)
     ) {
