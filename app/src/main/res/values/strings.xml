@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Sync-compose</string>
+
+    <!--바텀 메뉴-->
+    <string name="menu1">싱크</string>
+    <string name="menu2">커뮤니티</string>
+    <string name="menu3">개설</string>
+    <string name="menu4">채팅</string>
+    <string name="menu5">마이</string>
 </resources>
