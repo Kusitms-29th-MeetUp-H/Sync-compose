@@ -4,13 +4,16 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sync_compose.R
 import com.example.sync_compose.data.model.CommunityPost
 import com.example.sync_compose.ui.components.CommunityIntroItem
 import com.example.sync_compose.ui.components.CommunityPostItem
 import com.example.sync_compose.ui.components.TabComponent
+import com.example.sync_compose.ui.theme.SyncColors
 import com.example.sync_compose.ui.theme.SyncTheme
+import com.example.sync_compose.ui.util.SetStatusBarColor
 
 @Composable
 fun CommunityScreen() {
@@ -21,6 +24,7 @@ fun CommunityScreen() {
     )
 
     SyncTheme {
+        SetStatusBarColor()
         TabComponent(
             tabs = tabs,
             contents = contents
