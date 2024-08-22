@@ -1,6 +1,6 @@
 package com.example.sync_compose.data.di
 
-import androidx.viewbinding.BuildConfig
+import com.example.sync_compose.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +17,16 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    fun provideHttpClient(
+        loggingIntercepter: HttpLoggingInterceptor
+    ): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(loggingIntercepter)
+            .build()
+    }
+
+    @Provides
+    @Singleton
     fun provideLoggingIntercepter(): HttpLoggingInterceptor {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) {
@@ -27,7 +37,6 @@ object NetworkModule {
         }
         return loggingInterceptor
     }
-
 
     @Provides
     @Singleton
@@ -41,5 +50,4 @@ object NetworkModule {
             .client(okHttpClient)
             .build()
     }
-
 }
