@@ -1,12 +1,11 @@
 package com.example.sync_compose.ui.screen.community
 
-import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sync_compose.R
-import com.example.sync_compose.data.model.CommunityPost
+import com.example.data.model.community.CommunityPost
 import com.example.sync_compose.ui.components.CommunityIntroItem
 import com.example.sync_compose.ui.components.CommunityPostItem
 import com.example.sync_compose.ui.components.TabComponent

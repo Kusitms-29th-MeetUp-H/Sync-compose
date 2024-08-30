@@ -1,10 +1,10 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
     kotlin("kapt")
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
@@ -62,50 +62,42 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
 
     // Compose
-    implementation("androidx.activity:activity-compose:1.9.0")
-    implementation(platform("androidx.compose:compose-bom:2024.06.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material:material:1.6.8")
-    implementation("androidx.navigation:navigation-compose:2.7.7")
-    implementation("androidx.navigation:navigation-fragment:2.7.7")
-    implementation("androidx.navigation:navigation-ui:2.7.7")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.06.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.navigation.compose)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 
     // Retrofit, okhttp
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit.serialization.converter)
 
-    //library
-    implementation("io.coil-kt:coil:2.2.2")
-    implementation("io.coil-kt:coil-compose:2.2.2")
+    //coil
+    implementation(libs.coil.compose)
 
     //hilt
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
-
-    //Datastore
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
-    implementation("androidx.datastore:datastore-preferences-core:1.1.1")
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.core)
+    kapt(libs.hilt.compiler)
 
     //kakao login
-    implementation("com.kakao.sdk:v2-user:2.14.0")
+    implementation(libs.kakao.sdk)
 }
