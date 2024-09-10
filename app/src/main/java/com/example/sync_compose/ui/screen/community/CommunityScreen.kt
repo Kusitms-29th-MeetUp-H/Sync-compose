@@ -10,6 +10,7 @@ import com.example.sync_compose.R
 import com.example.sync_compose.data.model.CommunityPost
 import com.example.sync_compose.ui.components.CommunityIntroItem
 import com.example.sync_compose.ui.components.CommunityPostItem
+import com.example.sync_compose.ui.components.HeaderComponent
 import com.example.sync_compose.ui.components.TabComponent
 import com.example.sync_compose.ui.theme.SyncColors
 import com.example.sync_compose.ui.theme.SyncTheme
@@ -25,10 +26,11 @@ fun CommunityScreen() {
 
     SyncTheme {
         SetStatusBarColor()
-        TabComponent(
+        HeaderComponent(title = "커뮤니티")
+       /* TabComponent(
             tabs = tabs,
             contents = contents
-        )
+        )*/
     }
 }
 

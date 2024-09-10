@@ -294,4 +294,5 @@
     <string name="welcome_message">싱크에 가입했어요</string>
     <string name="greet_members">나의 싱크 채팅방에서 멤버들에게 인사해보세요!</string>
     <string name="do_check">확인</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
