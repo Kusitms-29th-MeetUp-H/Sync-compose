@@ -1,4 +1,4 @@
-package com.example.sync_compose.data.model
+package com.example.data.model.community
 
 
 data class CommunityPost(
