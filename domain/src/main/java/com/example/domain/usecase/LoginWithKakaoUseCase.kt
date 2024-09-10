@@ -11,6 +11,7 @@ class LoginWithKakaoUseCase @Inject constructor(
 ): UseCase<String, ApiState<Nothing>>() {
 
     override suspend fun invoke(request: String): Flow<ApiState<Nothing>> {
+        authRepository.kakaoLogin(request)
         TODO("Not yet implemented")
     }
 }
